@@ -1,0 +1,660 @@
+@charset "utf-8";
+@font-face {
+  font-family: 'WashInfo';
+  src: url('/library/fonts/zyarial/zyarial_0-webfont.eot');
+  src: url('/library/fonts/zyarial/zyarial_0-webfont.eot?#iefix') format('embedded-opentype'), url('/library/fonts/zyarial/zyarial_0-webfont.ttf') format('truetype'), url('/library/fonts/zyarial/zyarial_0-webfont.svg#focusfont_ipadregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*******************************
+            GLOBAL
+*******************************/
+.s-third {
+  width: 30px;
+}
+.s-four {
+  width: 140px;
+}
+.s-one {
+  width: 110px;
+}
+.s-five {
+  width: 50px;
+}
+.s-eight-five {
+  width: 85px;
+}
+.top-ten {
+  margin-top: 10px;
+}
+.m-ten {
+  margin-bottom: 10px;
+}
+.m-right {
+  margin-right: 10px;
+}
+.m-left {
+  margin-left: 10px;
+}
+.red {
+  border: 1px solid red;
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #9c9fa0;
+  font-weight: 400;
+  background: #fff;
+}
+body #wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+body.noscroll {
+  overflow-y: hidden;
+}
+/********************************
+***************************************  IE update  *****************************/
+div.modalie {
+  background: url(../images/modalbackground.png) repeat;
+  height: 100%;
+  width: 100%;
+  padding-left: 50%;
+  z-index: 99;
+  position: absolute;
+  display: none;
+  font-family: "Arial";
+}
+.modalie .bg {
+  position: absolute;
+  color: #717171;
+  z-index: 999;
+  margin: 150px -200px auto;
+  background-image: url(../images/bg.png);
+  width: 400px;
+  height: 410px;
+  border: 1px solid #c9c9c9;
+  border-radius: 3px;
+}
+/*header*/
+.modalie .head {
+  height: 80px;
+}
+.modalie .head img {
+  margin-top: 30px;
+  margin-left: 55px;
+  float: left;
+}
+.modalie .head p {
+  font-size: 15px;
+  margin: 20px;
+  float: left;
+  width: 40px;
+}
+.modalie .head a span {
+  margin: 20px;
+  float: right;
+  display: block;
+  background-image: url(../images/gui-ie.png);
+  width: 20px;
+  height: 20px;
+}
+.modalie .head a:hover span {
+  background-position: -20px 0px;
+}
+/*Content*/
+.modalie .modalie-content span {
+  margin-top: 20px;
+  float: left;
+  display: block;
+  background: url(../images/gui-ie.png) no-repeat;
+  background-position: 25px -45px;
+  width: 400px;
+  height: 140px;
+}
+.modalie .modalie-content p {
+  line-height: 140%;
+  float: left;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-left: 40px;
+  width: 320px;
+  text-align: center;
+}
+.modalie .modalie-content a {
+  margin-top: 20px;
+  text-decoration: none;
+  margin-left: 30px;
+  float: left;
+  background: url(../images/gui-ie.png);
+  background-position: 0px -190px;
+  width: 340px;
+  height: 40px;
+}
+.modalie .modalie-content a:hover {
+  background-position: 0px -230px;
+}
+.modalie .modalie-content a p {
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+.header {
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid #f9c4af;
+  position: relative;
+}
+.header .logo {
+  top: 5px;
+  width: 189px;
+  height: 100px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -95px;
+  background: url(../images/logo.png);
+  background-size: cover;
+}
+.content {
+  left: 50%;
+  margin-left: -160px;
+  position: relative;
+  width: 320px;
+  margin-top: 20px;
+  color: #e77a4a;
+}
+.content h1 {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.content span {
+  font-size: 13px;
+  display: block;
+  float: left;
+  position: relative;
+  line-height: 20px;
+  margin: 5px;
+}
+.content span.first {
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+}
+.content span.thin {
+  font-weight: 400;
+}
+.content span.label {
+  width: 100%;
+  font-size: 13px;
+}
+.content input[type=text] {
+  height: 40px;
+  border: 1px solid #828283;
+  margin: 5px;
+  padding: 0 5px;
+  font-size: 12px;
+  background-color: #fbfbfb;
+}
+.content input[type=text].other {
+  margin-top: 0px;
+}
+.content input {
+  float: left;
+  position: relative;
+}
+.content input[type=checkbox] {
+  margin: 15px 5px 15px 15px;
+}
+.content ul {
+  position: relative;
+  font: left;
+}
+.content ul.confirm-list {
+  width: 100%;
+  height: 250px;
+}
+.content ul.confirm-list li span {
+  font-weight: 600;
+}
+.content ul.confirm-list li p {
+  line-height: 40px;
+  margin: 0;
+  text-align: left;
+}
+.content li {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  float: left;
+}
+.content li span {
+  line-height: 30px;
+}
+.content form {
+  margin-bottom: 10px;
+}
+.content button {
+  border: 1px solid red;
+  width: 308px;
+  height: 40px;
+  line-height: 40px;
+  margin: 10px 5px 0;
+  font-size: 14px;
+  background: url(../images/btn-bkg.png) 1px 100%;
+  border: 1px solid #d0a691;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 1px #d58464;
+  padding: 0;
+}
+.content button:hover {
+  background: #eea281;
+}
+.content p {
+  text-align: center;
+  line-height: 20px;
+  font-weight: 12px;
+  margin-top: 10px;
+}
+.content p,
+.content input[type=text],
+.content h1 {
+  width: 295px;
+}
+.content p.other,
+.content input[type=text].other,
+.content h1.other {
+  width: 263px;
+}
+.content .add,
+.content .remove,
+.content .confirm {
+  width: 38px;
+  height: 38px;
+  display: block;
+  float: left;
+  position: absolute;
+  margin: 0;
+  background: url(../images/gui.png);
+  background-position-x: -10px;
+  background-position-y: -10px;
+}
+.content .confirm {
+  background-position-x: -70px;
+}
+.content .add {
+  background-position-x: -130px;
+}
+.adictional {
+  width: 318px;
+  border: 1px solid #f9c4af;
+}
+.adictional button {
+  margin-bottom: 10px;
+}
+.icon {
+  padding: 0px;
+  position: relative;
+  display: block;
+  border: none;
+  outline: none;
+  background: url("../images/sprite.png") top left no-repeat;
+}
+.icon.user-icon {
+  width: 13px;
+  height: 16px;
+  top: 8px;
+  margin-right: 5px;
+}
+.buttons {
+  background: #7abecc;
+  background-image: -moz-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
+  background-image: -webkit-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
+  background-image: -o-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
+  background-image: -ms-radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
+  background-image: radial-gradient(50% 100%, circle cover, #7abecc, #6ca9b7 60%);
+  outline: none;
+  border: 1px solid #5b8f9e;
+  height: 30px;
+  color: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  line-height: 30px;
+  transition: background 0.4s ease-out;
+  -webkit-transition: background 0.4s ease-out;
+}
+.buttons:hover,
+.buttons.sel {
+  background: #5b8f9e;
+}
+.buttons.buttons-link {
+  height: 28px;
+  display: block;
+}
+#table {
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+#table .tab-content {
+  height: auto;
+  width: 100%;
+  /*max-height: 450px;
+		min-height: 450px;*/
+  overflow-x: auto;
+}
+#table a {
+  color: inherit;
+}
+#table a.detail-link {
+  color: #5b8f9e;
+}
+th {
+  text-align: left;
+  font-size: 1.1em;
+  background-color: #eaf5f7;
+  color: #5d4d3c;
+}
+th.hasicon {
+  text-align: center;
+}
+tr {
+  line-height: 3em;
+}
+th,
+td {
+  padding: 2px 10px;
+}
+tbody,
+th {
+  border: 1px solid #d5e7ed;
+}
+.table-striped > tbody > tr:nth-child(even) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #fbfbfb;
+}
+.sample td,
+.sample th {
+  max-width: 560px;
+}
+/*.table-large{
+	width: 1805px;
+}*/
+.hide {
+  display: none;
+}
+/*****************
+************************* SIZES*************************/
+.third {
+  width: 30px;
+  height: 30px;
+}
+.second {
+  width: 20px;
+  height: 20px;
+}
+.fleft {
+  position: relative;
+  float: left;
+  clear: none;
+  display: block;
+}
+.cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.circle {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  behavior: url(pie/PIE.htc);
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.box-sizing {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.sprite {
+  background: url("../images/sprite.png") top left no-repeat;
+}
+.dialog_alert {
+  width: 85px;
+  height: 67px;
+  background-position: -10px -10px;
+}
+/***************
+*********************HOME e busca
+*****************************************************/
+form {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.form-group {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+}
+.form-control {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 18px;
+  padding: 5px 5px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #07112c;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d5e7ed;
+}
+.form-control.biggest {
+  float: left;
+  width: 90%;
+  max-width: 390px;
+}
+.form-control.result-form {
+  width: 50%;
+  min-width: 155px;
+  max-width: 600px;
+}
+form .label {
+  font-size: 1.1em;
+  cursor: text;
+}
+form .label-pre {
+  position: absolute;
+  left: 11px;
+  top: 5px;
+}
+form .label-default {
+  font-size: 1.2em;
+}
+/*******************************
+          RESPONSIVE
+*******************************/
+@media (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+  .content .viewport .col-sm-1 {
+    width: 100%;
+  }
+}
+@media (min-width: 400px) {
+  .content {
+    width: 400px;
+    margin-left: -200px;
+  }
+  .content h1 {
+    width: 100%;
+  }
+  .content p,
+  .content input[type=text] {
+    width: 375px;
+  }
+  .content p.other,
+  .content input[type=text].other {
+    width: 344px;
+  }
+  .content button {
+    width: 387px;
+  }
+  .adictional {
+    width: 398px;
+  }
+}
+@media (min-width: 768px) {
+  .content {
+    width: 768px;
+    margin-left: -384px;
+  }
+  .content h1 {
+    width: 500px;
+    font-size: 18px;
+    left: 50%;
+    position: relative;
+    margin-left: -250px;
+    margin-bottom: 20px;
+  }
+  .content input[type=text] {
+    height: 30px;
+  }
+  .content input[type=text].other {
+    width: 289px;
+    top: 5px;
+  }
+  .content span {
+    font-size: 14px;
+  }
+  .content span.first {
+    width: 380px;
+    margin: 20px 0;
+  }
+  .content span.label {
+    width: 150px;
+    text-align: right;
+  }
+  .content span.label.cargo {
+    width: 50px;
+  }
+  .content ul {
+    width: 600px;
+    position: relative;
+    float: right;
+  }
+  .content ul li {
+    width: 120px;
+  }
+  .content ul li.last {
+    width: 350px;
+  }
+  .content ul.confirm-list {
+    height: 170px;
+  }
+  .content ul.confirm-list li {
+    width: 380px;
+  }
+  .content ul.confirm-list li.biggest {
+    width: 760px;
+  }
+  .content ul.confirm-list li span {
+    width: 160px;
+    text-align: right;
+  }
+  .content button {
+    font-size: 18px;
+    width: 300px;
+    height: 60px;
+  }
+  .content button.remove-btn {
+    margin-right: 22px;
+    float: right;
+  }
+  .content button.add-btn {
+    margin-left: 70px;
+  }
+  .content p {
+    line-height: 40px;
+    width: 100%;
+  }
+  .content .add,
+  .content .remove,
+  .content .confirm {
+    width: 58px;
+    height: 48px;
+    background-position-x: 0;
+  }
+  .content .confirm {
+    background-position-x: -60px;
+  }
+  .content .add {
+    background-position-x: -120px;
+  }
+  .text {
+    width: 460px;
+    height: 40px;
+    margin: 10px 5px;
+    float: left;
+    position: relative;
+  }
+  .text input[type=text] {
+    width: 278px;
+    margin: 0 0 0 10px;
+  }
+  .cargo {
+    width: 270px;
+  }
+  .cargo input[type=text] {
+    width: 188px;
+  }
+  .segmentos {
+    position: relative;
+    float: left;
+    width: 100%;
+  }
+  .adictional {
+    margin: 20px 0;
+    padding: 15px 0;
+    width: 768px;
+  }
+}
+/*******************************
+     					IE 9
+*******************************/
+/*******************************
+     					IE 8
+*******************************/

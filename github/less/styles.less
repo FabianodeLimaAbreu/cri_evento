@@ -1,0 +1,310 @@
+﻿@charset "utf-8";
+@font-face {
+    font-family: 'WashInfo';
+    src: url('/library/fonts/zyarial/zyarial_0-webfont.eot');
+    src: url('/library/fonts/zyarial/zyarial_0-webfont.eot?#iefix') format('embedded-opentype'),         
+         url('/library/fonts/zyarial/zyarial_0-webfont.ttf') format('truetype'),
+         url('/library/fonts/zyarial/zyarial_0-webfont.svg#focusfont_ipadregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*******************************
+            GLOBAL
+*******************************/
+
+//Colors
+@title:#5b8f9e;
+@white:#fff;
+
+//Colors
+@light-text:#9c9fa0; //Light-text, markups and editable fields 
+@buttons:#7bc0cd; //buttons appearance: none;nd menu's markup
+@dark-text:#737677; //backgrounds and dark fonts
+//@warnings:#ff6527;
+
+//SIZES
+.s-third{width: 30px;}
+.s-four{width: 140px;}
+.s-one{width: 110px;}
+.s-five{width: 50px}
+.s-eight-five{width: 85px;}
+.top-ten{margin-top: 10px;} 
+.m-ten{margin-bottom: 10px;}
+.m-right{margin-right: 10px;}
+.m-left{margin-left: 10px}
+.red{border: 1px solid red;}
+html, body{
+	height:100%;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+body{
+	font-family:'Open Sans', sans-serif;
+	font-size: 12px;
+	color:@light-text;
+	font-weight: 400;
+	background:#fff;
+    #wrap {
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	}
+	&.noscroll{
+		overflow-y: hidden;
+	}
+}
+
+
+
+/********************************
+***************************************  IE update  *****************************/
+div.modalie{
+  background:url(../images/modalbackground.png) repeat;
+  height: 100%;
+  width: 100%;
+  padding-left: 50%;
+  z-index: 99;
+  position:absolute;
+  display: none;
+  font-family: "Arial";
+}
+.modalie .bg{
+  position: absolute;
+  color: #717171; 
+  z-index: 999;
+  margin:150px -200px auto;
+  background-image:url(../images/bg.png);
+  width:400px;
+  height:410px;
+  border: 1px solid #c9c9c9;
+  border-radius: 3px;
+}
+
+/*header*/
+.modalie .head{
+  height: 80px;
+}
+.modalie .head img{
+  margin-top: 30px;
+  margin-left: 55px;
+  float: left; 
+}
+.modalie .head p{
+  font-size: 15px;
+  margin: 20px;
+  float: left;
+  width: 40px;
+}
+.modalie .head a span{
+  margin: 20px;
+  float: right;
+  display: block;
+  background-image: url(../images/gui-ie.png);
+  width:20px;
+  height:20px;
+}
+.modalie .head a:hover span{
+  background-position:-20px 0px;
+}
+
+/*Content*/
+.modalie .modalie-content span{
+  margin-top:20px; 
+  float: left;
+  display: block;
+  background:url(../images/gui-ie.png) no-repeat;
+  background-position:25px -45px; 
+  width:400px;
+  height:140px;
+}
+.modalie .modalie-content p{
+  line-height: 140%;
+  float:left;
+  font-size: 16px;
+  margin-top:15px;
+  margin-left: 40px;
+  width: 320px;
+  text-align: center; 
+}
+.modalie .modalie-content a{
+  margin-top: 20px;
+  text-decoration: none;
+  margin-left: 30px;
+  float: left;
+  background: url(../images/gui-ie.png);
+  background-position: 0px -190px;
+  width:340px;
+  height: 40px;
+}
+.modalie .modalie-content a:hover{
+  background-position:0px -230px;
+}
+.modalie .modalie-content a p{
+  margin-left: 10px;
+  margin-top:10px; 
+  text-align: center;
+  color: white;
+}
+// ***********************************HEADER**************************************
+.header{
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid #f9c4af;
+  position: relative;
+  .logo{
+    top:5px;
+    width: 189px;
+    height: 100px;
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-left: -95px;
+    background: url(../images/logo.png);
+    background-size: cover;
+  }
+}
+.content{
+  left: 50%;
+  margin-left: -160px;
+  position: relative;
+  width: 320px;
+  margin-top: 20px;
+  color: #e77a4a;
+  h1{
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  span{
+    font-size: 13px;
+    // width: 280px;
+    display: block;
+    float: left;
+    position: relative;
+    line-height: 20px;
+    margin: 5px;
+    &.first{
+      font-size: 14px;
+      text-align: center;
+      font-weight: 600;
+      width: 100%;
+    }
+    &.thin{
+      font-weight: 400;
+    }
+    &.label{
+      width: 100%;
+      font-size: 13px;
+    }
+    // text-align: center;
+  }
+  input[type=text]{
+    height: 40px;
+    border: 1px solid #828283;
+    margin: 5px;
+    padding:0 5px;
+    font-size: 12px;
+    background-color: #fbfbfb;
+    &.other{
+      margin-top: 0px;
+      // height: 30px;
+    }
+  }
+  input{
+    float: left;
+    position: relative;
+  }
+  input[type=checkbox]{
+    margin: 15px 5px 15px 15px;
+  }
+  ul{
+    position: relative;
+    font: left;
+    &.confirm-list{
+      width: 100%;
+      height:250px;
+      li{
+        span{
+          font-weight: 600;
+        }
+        p{
+          line-height: 40px;
+          margin: 0;
+          text-align: left;
+        }
+      }
+    }
+  }
+  li{
+    width: 100%;
+    height: 40px;
+    // .red;
+    position: relative;
+    float: left;
+    span{
+      line-height: 30px;
+    }
+  }
+  form{
+    margin-bottom: 10px;
+  }
+  button{
+    .red;
+    width: 308px;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 5px 0;
+    font-size: 14px;
+    background: url(../images/btn-bkg.png)1px 100%;
+    border: 1px solid #d0a691;
+    font-weight: 400;
+    color: white;
+    text-shadow: 2px 1px #d58464;
+    padding: 0;
+    &:hover{
+      background:#eea281;
+    }
+  }
+  p{
+    text-align: center;
+    line-height: 20px;
+    font-weight: 12px;
+    margin-top: 10px;
+  }
+  p,input[type=text],h1{
+    width:295px;
+    &.other{
+      width:263px;
+    }
+  }
+  .add,.remove,.confirm{
+    width: 38px;
+    height: 38px;
+    display: block;
+    float: left;
+    position: absolute;
+    margin: 0;
+    background: url(../images/gui.png);
+    background-position-x:-10px;
+    background-position-y: -10px;
+  }
+  .confirm{
+    background-position-x:-70px;
+  }
+  .add{
+    background-position-x:-130px;
+  }
+}
+.adictional{
+  width: 318px;
+  border: 1px solid #f9c4af;
+  button{
+    margin-bottom: 10px;
+  }
+}
+
+@import url(import.less);
