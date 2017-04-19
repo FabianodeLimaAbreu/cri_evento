@@ -10,7 +10,7 @@
 * @constructor
 */
 function Init(){
-
+	// Number of subforms of participants
 	this.contador=0;
 	
 	/**
@@ -26,20 +26,20 @@ function Init(){
 		console.log(txt);
 
 
-		cnpj = "";
+		cod = "";
 		url=window.location.href;
 		parametros_url=url.split("?")[1];
 		if(parametros_url!=undefined && parametros_url.length>1 && parametros_url[1]!=undefined)
 		{
-			cnpj = parametros_url.split(",")[1];	
+			cod = parametros_url.split(",")[1];	
 		} else {
-			cnpj = "";
+			cod = "";
 		}
 
 
 		$.ajax(
 			{
-				"url":"http://189.126.197.169/node/servicesctrl_dev/cri_event/find/"+cnpj,
+				"url":"http://189.126.197.169/node/servicesctrl_dev/cri_event/find/"+cod,
 				"type":"get",
 				"dataType":"json",
 				"success":function(data){
@@ -66,14 +66,14 @@ function Init(){
 					for(var i in data)
 					{
 
-						//console.log(data[i]["CNPJ"]);
-						//console.log(cnpj);
-						if(data[i]["CNPJ"]==cnpj)
+						//console.log(data[i]["cod"]);
+						//console.log(cod);
+						if(data[i]["cod"]==cod)
 						{
 							encontrado = true;
 							$("#razaosocial").html(data[i]["RAZAO"]);
 
-							$("#cnpj").html(data[i]["CNPJ"]);
+							$("#codigo").html(data[i]["CODIGO"]);
 							$(".form1").find("[name='nome_participante']").val(data[i]["REPRESENTANTE"]);
 							$(".form1").find("[name='cargo']").val("Representante");
 							$(".form1").find("[name='email']").val(data[i]["EMAIL"]);
@@ -81,14 +81,14 @@ function Init(){
 					}
 					if(encontrado == false) {
 						var modal = new Modal();
-						modal.open('CNPJ não encontrado', '', true,modal.redirect);
+						modal.open('CÓDIGO não encontrado', '', true,modal.redirect);
 					}
 				}
 			}
 		);
 
 		$(".add-btn").on("click",function(e){
-			self.clickh(e);
+			self.addclick(e);
 		});
 
 		$(".confirm-btn").on("click",function(e){
@@ -107,7 +107,13 @@ function Init(){
 
 	};
 
-	this.clickh=function(e) {
+	/**
+  	* AddClick Method
+  	* Action performed when the user clicks the add button
+  	* @memberOf Init#
+  	* @param {Object} e - Reference the event
+  	*/
+	this.addclick=function(e) {
 		e.preventDefault();
 		//console.log(this.contador);
 		if(this.contador<3)
@@ -123,22 +129,30 @@ function Init(){
 				console.log("Máximo atingido");
 			}
 	}
-
+	/**
+  	* Confirm Method
+  	* Action performed when user clicks confirm button
+  	* @memberOf Init#
+  	* @param {Object} e - Reference the event
+  	*/
 	this.confirm=function(e) {
 		url=window.location.href;
 		parametros_url=url.split("?")[1];
+
+		cod = "";
+
 		if(parametros_url!=undefined && parametros_url.length>1 && parametros_url[1]!=undefined)
 		{
-			cnpj = parametros_url.split(",")[1];	
-		} else {
-			cnpj = "";
+			cod = parametros_url.split(",")[1];	
 		}
 
 		//id = "";
 		name = $(".form1").find("[name='nome_participante']").val();
 		cargo = $(".form1").find("[name='cargo']").val();
 		email = $(".form1").find("[name='email']").val();
-		
+		codigo = $("#codigo").html();
+
+
 		var segments = [];
 		$(".form1").find("input[name='segmento[]']:checked").each(function ()
 		{
@@ -192,7 +206,8 @@ function Init(){
 
 
 		post_data = {
-				"cnpj" : cnpj,
+				"cod": cod,
+				"codigo" : codigo,
 				"name" : name,
 				"cargo": cargo,
 				"email": email,
@@ -213,7 +228,7 @@ function Init(){
               console.dir(data);
               if(data.errors==undefined)
               {
-              	window.location.href="confirmation.html?368,"+cnpj;
+              	window.location.href="confirmation.html?368,"+cod;
               }
               else
               {
@@ -222,7 +237,11 @@ function Init(){
             },
         });
 	}
-
+	/**
+  	* Validate Method
+  	* Validate form fields
+  	* @memberOf Init#
+  	*/
 	this.validate=function(){
 
 		result = true;
