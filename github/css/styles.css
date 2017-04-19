@@ -168,7 +168,7 @@ div.modalie {
 }
 .content {
   left: 50%;
-  margin-left: -160px;
+  margin-left: -162px;
   position: relative;
   width: 320px;
   margin-top: 20px;
@@ -202,6 +202,9 @@ div.modalie {
   width: 100%;
   font-size: 13px;
 }
+.content span.label.error {
+  color: #dd0202;
+}
 .content input[type=text] {
   height: 40px;
   border: 1px solid #828283;
@@ -212,6 +215,10 @@ div.modalie {
 }
 .content input[type=text].other {
   margin-top: 0px;
+}
+.content input[type=text].error,
+.content ul.error {
+  border: 1px solid #dd0202;
 }
 .content input {
   float: left;
@@ -224,17 +231,28 @@ div.modalie {
   position: relative;
   font: left;
 }
-.content ul.confirm-list {
+.content .confirm-list {
   width: 100%;
-  height: 250px;
+  height: 340px;
+  padding-top: 10px;
+  border: 1px solid #d0a691;
 }
-.content ul.confirm-list li span {
+.content .confirm-list dt {
+  float: left;
+  position: relative;
+}
+.content .confirm-list dt span {
   font-weight: 600;
 }
-.content ul.confirm-list li p {
-  line-height: 40px;
+.content .confirm-list dt p {
+  line-height: 32px;
   margin: 0;
   text-align: left;
+}
+.content .confirm-list dt p.adress {
+  text-align: left;
+  line-height: 20px;
+  margin-left: 5px;
 }
 .content li {
   width: 100%;
@@ -261,15 +279,40 @@ div.modalie {
   color: white;
   text-shadow: 2px 1px #d58464;
   padding: 0;
+  cursor: pointer;
 }
 .content button:hover {
   background: #eea281;
+}
+.content button.disabled {
+  opacity: .5;
+  cursor: auto;
+}
+.content button.disabled:hover {
+  background: url(../images/btn-bkg.png) 1px 100%;
 }
 .content p {
   text-align: center;
   line-height: 20px;
   font-weight: 12px;
   margin-top: 10px;
+}
+.content p.conf {
+  line-height: 18px;
+}
+.content p.social,
+.content p.cnpj,
+.content p.first-label {
+  width: auto;
+  position: relative;
+  float: left;
+  margin-right: 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.content p.social {
+  width: 220px;
 }
 .content p,
 .content input[type=text],
@@ -306,6 +349,118 @@ div.modalie {
 }
 .adictional button {
   margin-bottom: 10px;
+}
+/*********************************
+************************************  DEFAULT MODAL ***************************/
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 1000px;
+  display: none;
+}
+#modal .modal-content {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100px;
+  max-width: 440px;
+  z-index: 999;
+  background-repeat: no-repeat;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  top: 200px;
+  width: 96%;
+  padding: 1%;
+  background-color: #fff;
+}
+#modal .modal-text {
+  float: left;
+  margin-left: 10px;
+  width: 300px;
+}
+#modal .fa-check-square {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+#modal .fa-check-square:before {
+  font-size: 120px;
+  position: relative;
+  float: left;
+  color: #217fa5;
+  top: -10px;
+}
+#modal .bclose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border-width: 0 0 1px 1px;
+  border-style: solid;
+  border-color: #c4c4c4;
+  cursor: pointer;
+}
+#modal .bclose .fa-times:before {
+  color: #217fa5;
+  font-size: 25px;
+}
+#modal .bclose:hover {
+  background: #efefef;
+}
+#modal h2 {
+  font-size: 12pt;
+  font-weight: 400;
+  line-height: 17pt;
+  color: #217fa5;
+  margin: 0;
+}
+#modal p {
+  float: left;
+  position: relative;
+  font-size: 9.5pt;
+  margin-top: 5px;
+  line-height: 12pt;
+  color: ##217fa5;
+}
+#modal .modal-buttons {
+  position: relative;
+  float: left;
+  width: 245px;
+  margin: 10px;
+  display: none;
+}
+#modal .modal-buttons button {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 30px;
+  margin-right: 10px;
+  color: #535353;
+  background: #eee;
+  border: 1px solid #c6c6c6;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#modal .modal-buttons button:hover {
+  color: #fff;
+  background: #bbb;
+}
+#modal.bad h2,
+#modal.bad .bclose .fa-times:before,
+#modal.bad .fa-check-square:before {
+  color: #b21e1e;
+}
+#modal.questions .modal-buttons {
+  display: block;
 }
 .icon {
   padding: 0px;
@@ -533,6 +688,9 @@ form .label-default {
   .content button {
     width: 387px;
   }
+  .content p.social {
+    width: 280px;
+  }
   .adictional {
     width: 398px;
   }
@@ -582,18 +740,25 @@ form .label-default {
   .content ul li.last {
     width: 350px;
   }
-  .content ul.confirm-list {
-    height: 170px;
+  .content .confirm-list {
+    height: 260px;
+    padding-top: 20px;
   }
-  .content ul.confirm-list li {
+  .content .confirm-list dt {
     width: 380px;
   }
-  .content ul.confirm-list li.biggest {
+  .content .confirm-list dt.biggest {
     width: 760px;
   }
-  .content ul.confirm-list li span {
+  .content .confirm-list dt span {
     width: 160px;
     text-align: right;
+  }
+  .content .confirm-list dt p.adress {
+    text-align: center;
+  }
+  .content .confirm-list dt p b {
+    font-size: 14px;
   }
   .content button {
     font-size: 18px;

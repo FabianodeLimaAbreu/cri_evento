@@ -26,9 +26,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
       <![endif]-->
       <!--[if lt IE 9]><html class="ie8"><![endif]-->
-      <style type="text/css">
-
-      </style>
     </head>
   <body>
   <div class="header">
@@ -49,12 +46,12 @@ confirmação de sua presença no evento.</h1>
     <input type="text" placeholder="Designer de Moda" name="cargo" disabled="disabled">
   </div>
    <div class="text">
-    <span class="label">*Email:</span>
-    <input type="text" placeholder="criacao@pernambucanas.com.br" name="email" disabled="disabled">
+    <span class="label error">*Email:</span>
+    <input type="text" class="error" placeholder="criacao@pernambucanas.com.br" name="email" disabled="disabled">
   </div>
   <div class="segmentos">
     <span class="label">*Segmentos:</span>
-    <ul class="ulsegmentos">
+    <ul>
         <li><input type="checkbox" name="segmento[]" value="feminino"><span>Feminino</span></li>
         <li><input type="checkbox" name="segmento[]" value="masculino"><span>Masculino</span></li>
         <li><input type="checkbox" name="segmento[]" value="infantil"><span>Infantil</span></li>
@@ -69,19 +66,19 @@ confirmação de sua presença no evento.</h1>
 <form class="adictional hide" id="form-structure"> 
   <div class="text">
     <span class="label">*Nome do Participante:</span>
-    <input type="text" placeholder="" name="nome_participante">
+    <input type="text" placeholder="Julia Maria" name="nome_participante">
   </div>
    <div class="text cargo">
     <span class="label cargo">*Cargo:</span>
-    <input type="text" placeholder="" name="cargo">
+    <input type="text" placeholder="Designer de Moda" name="cargo">
   </div>
    <div class="text">
     <span class="label">*Email:</span>
-    <input type="text" placeholder="" name="email" class="required">
+    <input type="text" placeholder="criacao@pernambucanas.com.br" name="email" class="required">
   </div>
   <div class="segmentos">
     <span class="label">*Segmentos:</span>
-    <ul class="ulsegmentos">
+    <ul>
         <li><input type="checkbox" name="segmento[]" value="feminino"><span>Feminino</span></li>
         <li><input type="checkbox" name="segmento[]" value="masculino"><span>Masculino</span></li>
         <li><input type="checkbox" name="segmento[]" value="infantil"><span>Infantil</span></li>
@@ -95,7 +92,7 @@ confirmação de sua presença no evento.</h1>
   <button class="remove-btn" type="button"><span class="remove"></span>Remover Participante</button>
 </form>
 <button class="add-btn" type=""><span class="add"></span>Adicionar Participante</button>
-<button type="button" class="confirm-btn"><span class="confirm"></span>Confirmar Presença</button>
+<button type="" class="confirm-btn"><span class="confirm"></span>Confirmar Presença</button>
 <p>Confirme presença após adicionar todos os participantes.</p>
   </div>
   <div id="modal">

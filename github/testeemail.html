@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>baseProject - Home</title>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="description" content="">
+      <meta name="author" content="Focus">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css">
+      <!-- build:css css/styles.min.css-->
+      <link href="css/reset.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+      <!-- endbuild-->
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="icon" type="image/icon" href="favicon.ico">
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+      <!--[if gte IE 9]>
+        <html class="ie9">
+      <![endif]-->
+      <!--[if lt IE 9]>
+        <html class="ie8">
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+      <!--[if lt IE 9]><html class="ie8"><![endif]-->
+    </head>
+  <body>
+    <button onclick="teste()"></button>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+      function teste(){
+        var CLIENT = {
+            CNPJ: '432342432',
+            Cargo: 'FAFAFAFAFAFFFAFA',
+            Email: 'fabianoabreu@focustextil.com.br',
+            Nome: 'Fabiano',
+            Razao: 'TI',
+            Segmentos: 'Feminino'
+        };
+
+        $.ajax({
+            url: 'http://ii3/services/Services/EV.svc/SendEmail/0',
+            data: JSON.stringify(CLIENT),
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            traditional: true,
+            success: function(data) {
+              console.dir(data);
+            },
+        });
+      }
+    </script>
+  </body>
+</html>
