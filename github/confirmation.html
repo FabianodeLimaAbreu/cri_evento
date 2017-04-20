@@ -9,10 +9,11 @@
       <meta name="author" content="Focus">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
       <!-- build:css css/styles.min.css-->
       <link href="css/reset.css" rel="stylesheet">
-      <!-- <link href="css/styles.css" rel="stylesheet"> -->
       <!-- endbuild-->
+      <link href="css/styles.css" rel="stylesheet">
       <link rel="shortcut icon" href="favicon.ico">
       <link rel="icon" type="image/icon" href="favicon.ico">
       <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -107,7 +108,13 @@
         .content .confirm-list dt p {
           line-height: 32px;
           margin: 0;
+        }
+        .content .confirm-list dt p.razao{
+          width: 210px;
           text-align: left;
+          white-space: nowrap; 
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
         .content .confirm-list dt p b {
           font-size: 14px;  
@@ -198,8 +205,8 @@
   </div>
   <div class="content">
     <h1>Inscrição confirmada!</h1>
-    <dl class="confirm-list">
-        <dt><span>Razão Social:</span><p>Pernambucanas</p></dt>
+    <!--<dl class="confirm-list">
+        <dt><span>Razão Social:</span><p class="razao">Pernambucanas</p></dt>
         <dt><span>CNPJ:</span><p>00.000.000/0001-00</p></dt>
         <dt><span>Nome do Participante:</span><p>Julia Maria </p></dt>
         <dt><span>Cargo:</span><p>Designer de Moda</p></dt>
@@ -213,35 +220,24 @@
           <br>
             <p class="adress">-Uma cópia da confirmação foi enviada para seu e-Mail. <br>-Apresente uma cópia desta confirmação na entrada do evento</p>
         </dt>
-    </dl>
+    </dl>-->
+  </div>
+  <div id="modal">
+    <div class="modal-content">
+      <button type="button" class="bclose"><i class="fa fa-times" aria-hidden="true"></i></button><i class="fa fa-check-square" aria-hidden="true"></i>
+      <div class="modal-text">
+        <h2>Tente Novamente</h2>
+        <p>Nenhum resultado encontrado para a busca.  </p>
+      </div>
+      <div class="modal-buttons">
+        <button>Sim</button>
+        <button>Não</button>
+      </div>
+    </div>
   </div>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <!-- build:js js/scripts.js -->
-    <!--<script type="text/javascript" src="js/scripts.js"></script>-->
+    <!-- build:js js/confirm.js -->
+    <script type="text/javascript" src="js/confirm.js"></script>
     <!-- endbuild -->
-    <script type="text/javascript">
-      cnpj = "";
-      url=window.location.href;
-      parametros_url=url.split("?")[1];
-      if(parametros_url!=undefined && parametros_url.length>1 && parametros_url[1]!=undefined)
-      {
-        console.log("diferente undefined");
-        cnpj = parametros_url.split(",")[1];  
-      } else {
-        console.log("igual undefined");
-        cnpj = "";
-      }
-
-      $.ajax(
-          {
-            "url":"http://189.126.197.169/node/servicesctrl_dev/cri_event/find/"+cnpj,
-            "type":"get",
-            "dataType":"json",
-            "success":function(data){
-
-            }
-          }
-        );
-    </script>
   </body>
 </html>

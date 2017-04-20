@@ -48,7 +48,7 @@ function Init(){
 					if(data.length>0)
 					{
 						var modal = new Modal();
-						modal.open('Participante já cadastrado', '', true,modal.redirect);
+						modal.open('Cadastro já efetuado!', 'Verfique o seu email', false,function(){modal.confirmRedirection(cod)});
 					}
 				}
 			}
@@ -57,7 +57,7 @@ function Init(){
 
 		$.ajax(
 			{
-				"url":"http://institucionalteste/evento-criciuma-2017/ajax/list.js",
+				"url":"/evento-criciuma-2017/ajax/list.js",
 				"type":"get",
 				"dataType":"json",
 				"success":function(data){
@@ -81,7 +81,7 @@ function Init(){
 					}
 					if(encontrado == false) {
 						var modal = new Modal();
-						modal.open('CÓDIGO não encontrado', '', true,modal.redirect);
+						modal.open('Código não encontrado', 'Contate seu representante', true,modal.redirect);
 					}
 				}
 			}
@@ -151,7 +151,7 @@ function Init(){
 		cargo = $(".form1").find("[name='cargo']").val();
 		email = $(".form1").find("[name='email']").val();
 		codigo = $("#codigo").html();
-
+		razaosocial = $("#razaosocial").html();
 
 		var segments = [];
 		$(".form1").find("input[name='segmento[]']:checked").each(function ()
@@ -198,7 +198,9 @@ function Init(){
 				"pname": pname,
 				"pcargo": pcargo,
 				"pemail": pemail,
-				"psegments": psegments
+				"psegments": psegments,
+				"pcodigo": codigo,
+				"prazao": razaosocial
 			}
 			participants.push(participant);
 		});
@@ -208,6 +210,7 @@ function Init(){
 		post_data = {
 				"cod": cod,
 				"codigo" : codigo,
+				"razao": razaosocial,
 				"name" : name,
 				"cargo": cargo,
 				"email": email,
@@ -240,6 +243,7 @@ function Init(){
 	/**
   	* Validate Method
   	* Validate form fields
+  	* Checks the required fields, returns true did not encounter any problems, otherwise highlights the fields with problem and returns false.
   	* @memberOf Init#
   	*/
 	this.validate=function(){
@@ -366,6 +370,10 @@ function Modal(el,buttons,btnclose) {
 
 	this.redirect=function(txt){
 		window.location.href="http://www.focustextil.com.br";
+	}
+
+	this.confirmRedirection=function(txt){
+		window.location.href="http://www.focustextil.com.br/evento-criciuma-2017/confirmation.html?368,"+txt;
 	}
 }
 

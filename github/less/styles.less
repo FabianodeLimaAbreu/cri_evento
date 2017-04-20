@@ -254,6 +254,12 @@ div.modalie{
             line-height: 20px;
             margin-left: 5px;
           }
+          &.razao{
+            width: 300px;
+            white-space: nowrap; 
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
         }
       }
     }
@@ -398,7 +404,7 @@ div.modalie{
     }
   }
   h2{font-size: 12pt; font-weight: 400; line-height: 17pt; color: #217fa5;margin: 0;}
-  p{float:left; position:relative; font-size: 9.5pt; margin-top: 5px; line-height: 12pt;color:##217fa5;}
+  p{float:left; position:relative; font-size: 12pt; margin-top: 5px;  line-height: 17pt; color: #217fa5;font-weight: 400;margin-top: 20px;}
   .modal-buttons{
     position: relative;
     float: left;
@@ -423,7 +429,7 @@ div.modalie{
     }
   }
   &.bad{
-    h2,.bclose .fa-times:before,.fa-check-square:before{
+    h2,p,.bclose .fa-times:before,.fa-check-square:before{
       color: #b21e1e;
     }
   }
